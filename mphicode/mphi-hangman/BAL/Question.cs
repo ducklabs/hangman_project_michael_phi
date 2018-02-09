@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BAL
 {
@@ -57,6 +58,10 @@ namespace BAL
             return questions[randNum.Next(questions.Count)];
         }
 
-
+        // gets a question by id
+        public static Question GetQuestionByID(int id)
+        {
+            return Question.GetQuestions().Where(item => item.Id == id).First();
+        }
     }
 }

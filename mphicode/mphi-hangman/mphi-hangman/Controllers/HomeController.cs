@@ -9,30 +9,28 @@ using System.Web.Mvc;
 
 namespace mphi_hangman.Controllers
 {
+    // home controller for the hangman application
     public class HomeController : Controller
     {
         // displaying the hangman game
         public ActionResult Index()
         {
-            ViewBag.Message = "Hangman.";
-
+            ViewBag.Message = "Michael Phi's Hangman";
+            
             char[] alphabit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
 
-            char[] usedLetters = { 'A', 'O', 'G' };
-
-            RetryEnum.Retry currentAtemptNumber = RetryEnum.Retry.Three;
-
-            var questionBAL = BAL.Question.GetRandomQuestion();
+            Hangman currentGame = HangmanUtility.FindCurrentGame(this.ControllerContext.HttpContext);
+            
 
             // masks the answer for the user
-            questionBAL.Answer = HangmanUtility.MaskAnswer(questionBAL.Answer, usedLetters);
+            currentGame.Question.Answer = HangmanUtility.MaskAnswer(currentGame.Question.Answer, currentGame.UsedLetters);
 
             var gameViewModel = new GameViewModel()
             {
-                Question = new Models.Question(questionBAL),
+                Question = new Models.Question(currentGame.Question), 
                 Alphabit = alphabit,
-                UsedLetters = usedLetters,
-                CurrentAtemptNumber = currentAtemptNumber
+                UsedLetters = currentGame.UsedLetters,
+                CurrentAtemptNumber = currentGame.CurrentAtemptNumber
             };
             
             return View(gameViewModel);
@@ -48,6 +46,7 @@ namespace mphi_hangman.Controllers
         // action for a new game
         public ActionResult New()
         {
+            HangmanUtility.EndCurrentGame(this.ControllerContext.HttpContext);
             return RedirectToAction("Index");
         }
 
