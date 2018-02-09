@@ -23,14 +23,15 @@ namespace mphi_hangman.Utility
             char[] resultArray = answer.ToCharArray();
             char[] originalAnswerArray = answer.ToCharArray();
 
+            
             for (int i = 0; i < originalAnswerArray.Length; i++)
             {
-                if (usedLetters.Contains(originalAnswerArray[i]))
+                if (!usedLetters.Contains(originalAnswerArray[i]))
                 {
                     resultArray[i] = MaskAnswerCharacter; // * represents a masked character
                 }
             }
-
+            
             return new string(resultArray);
         }
         
