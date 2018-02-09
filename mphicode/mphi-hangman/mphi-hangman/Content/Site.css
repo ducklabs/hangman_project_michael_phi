@@ -25,6 +25,12 @@ textarea {
 
 
 
+img.hangmanImage {
+    display: block;
+    margin: 0 auto;
+}
+
+
 ul.alphabitList {
     list-style-type: none;
 }
@@ -35,4 +41,13 @@ ul.alphabitList {
         margin: 7px 2px;
         background-color: chocolate;
     }
+
+        ul.alphabitList li:hover {
+            font-size: 20px;
+        }
+
+        ul.alphabitList li.used {
+            text-decoration: line-through;
+            background-color: darksalmon;
+        }
 

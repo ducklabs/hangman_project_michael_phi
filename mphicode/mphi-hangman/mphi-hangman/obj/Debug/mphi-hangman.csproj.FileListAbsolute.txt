@@ -138,3 +138,5 @@ C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\System.Xml.XPath.dll
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\System.Xml.XPath.XDocument.dll
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\BAL.dll
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\BAL.pdb
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.framework.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.framework.xml

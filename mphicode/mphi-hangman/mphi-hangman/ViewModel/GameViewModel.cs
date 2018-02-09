@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BAL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,5 +11,11 @@ namespace mphi_hangman.ViewModel
     {
         // represents the letters from A-Z
         public char[] Alphabit;
+        
+        // represents the letters the user has selected
+        public char[] UsedLetters;
+
+        // represents the current attempt number for the user
+        public RetryEnum.Retry CurrentAtemptNumber;
     }
 }

@@ -1,4 +1,5 @@
-﻿using mphi_hangman.ViewModel;
+﻿using BAL;
+using mphi_hangman.ViewModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,10 +15,16 @@ namespace mphi_hangman.Controllers
             ViewBag.Message = "Hangman.";
 
             char[] alphabit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
-            
+
+            char[] usedLetters = { 'A', 'O', 'G' };
+
+            RetryEnum.Retry currentAtemptNumber = RetryEnum.Retry.Three;
+
             var gameViewModel = new GameViewModel()
             {
-                Alphabit = alphabit
+                Alphabit = alphabit,
+                UsedLetters = usedLetters,
+                CurrentAtemptNumber = currentAtemptNumber
             };
             
             return View(gameViewModel);
