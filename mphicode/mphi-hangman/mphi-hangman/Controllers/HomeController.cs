@@ -1,4 +1,5 @@
-﻿using System;
+﻿using mphi_hangman.ViewModel;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,16 @@ namespace mphi_hangman.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            ViewBag.Message = "Hangman.";
+
+            char[] alphabit = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".ToCharArray();
+            
+            var gameViewModel = new GameViewModel()
+            {
+                Alphabit = alphabit
+            };
+            
+            return View(gameViewModel);
         }
 
         public ActionResult About()

@@ -5,6 +5,8 @@ VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "mphi-hangman", "mphi-hangman\mphi-hangman.csproj", "{26EE8852-3583-4962-A7E2-7EE81A638AEF}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BAL", "BAL\BAL.csproj", "{599A3F70-15D9-49F6-91C0-C604A4F74317}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{26EE8852-3583-4962-A7E2-7EE81A638AEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{26EE8852-3583-4962-A7E2-7EE81A638AEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{26EE8852-3583-4962-A7E2-7EE81A638AEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{599A3F70-15D9-49F6-91C0-C604A4F74317}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{599A3F70-15D9-49F6-91C0-C604A4F74317}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{599A3F70-15D9-49F6-91C0-C604A4F74317}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{599A3F70-15D9-49F6-91C0-C604A4F74317}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

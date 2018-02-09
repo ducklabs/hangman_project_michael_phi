@@ -1,0 +1,9 @@
+C:\github\symend\mphicode\mphi-hangman\BAL\bin\Debug\netstandard2.0\BAL.deps.json
+C:\github\symend\mphicode\mphi-hangman\BAL\bin\Debug\netstandard2.0\BAL.dll
+C:\github\symend\mphicode\mphi-hangman\BAL\bin\Debug\netstandard2.0\BAL.pdb
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.csprojResolveAssemblyReference.cache
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.csproj.CoreCompileInputs.cache
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.AssemblyInfoInputs.cache
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.AssemblyInfo.cs
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.dll
+C:\github\symend\mphicode\mphi-hangman\BAL\obj\Debug\netstandard2.0\BAL.pdb
