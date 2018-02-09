@@ -1,4 +1,5 @@
 ﻿using BAL;
+using mphi_hangman.Utility;
 using mphi_hangman.ViewModel;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,7 @@ namespace mphi_hangman.Controllers
 {
     public class HomeController : Controller
     {
+        // displaying the hangman game
         public ActionResult Index()
         {
             ViewBag.Message = "Hangman.";
@@ -20,8 +22,14 @@ namespace mphi_hangman.Controllers
 
             RetryEnum.Retry currentAtemptNumber = RetryEnum.Retry.Three;
 
+            var questionBAL = BAL.Question.GetRandomQuestion();
+
+            // masks the answer for the user
+            questionBAL.Answer = HangmanUtility.MaskAnswer(questionBAL.Answer, usedLetters);
+
             var gameViewModel = new GameViewModel()
             {
+                Question = new Models.Question(questionBAL),
                 Alphabit = alphabit,
                 UsedLetters = usedLetters,
                 CurrentAtemptNumber = currentAtemptNumber
@@ -30,18 +38,19 @@ namespace mphi_hangman.Controllers
             return View(gameViewModel);
         }
 
-        public ActionResult About()
+        // post action for guessing a letter
+        [HttpPost]
+        public ActionResult GuessLetter(string letterSelected)
         {
-            ViewBag.Message = "Your application description page.";
-
-            return View();
+            return RedirectToAction("Index");
         }
 
-        public ActionResult Contact()
+        // action for a new game
+        public ActionResult New()
         {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
+            return RedirectToAction("Index");
         }
+
+        
     }
 }

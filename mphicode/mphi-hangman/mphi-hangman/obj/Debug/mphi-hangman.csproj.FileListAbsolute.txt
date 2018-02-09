@@ -140,3 +140,10 @@ C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\BAL.dll
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\BAL.pdb
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.framework.dll
 C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.framework.xml
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\NUnit3.TestAdapter.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.engine.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\nunit.engine.api.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\Mono.Cecil.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\Mono.Cecil.Pdb.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\Mono.Cecil.Mdb.dll
+C:\github\symend\mphicode\mphi-hangman\mphi-hangman\bin\Mono.Cecil.Rocks.dll

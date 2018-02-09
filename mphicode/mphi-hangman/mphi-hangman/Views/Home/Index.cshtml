@@ -6,6 +6,19 @@
 
 <div class="container">
 
+    <div class="row">
+        <div class="col-xs-12">
+            <h3>Hangman (@Html.DisplayNameFor(Model => Model.Question.Theme): @Model.Question.Theme )</h3>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="hint">
+                @Html.DisplayNameFor(Model => Model.Question.Hint): @Model.Question.Hint
+            </span>
+        </div>
+    </div>
 
     <div class="row">
         <div class="col-xs-12  text-center">
@@ -60,6 +73,26 @@
 
     <div class="row">
         <div class="col-xs-12">
+            <div class="userLetters">
+                <ul class="userLetterList">
+                    @foreach (var letter in Model.Question.Answer.ToCharArray())
+                    {
+                        if (letter.Equals(mphi_hangman.Utility.HangmanUtility.MaskAnswerCharacter))
+                        {
+                            <li>&nbsp;&nbsp;</li>
+                        }
+                        else
+                        {
+                            <li>@letter</li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-xs-12">
             <div>
                 Please select a character:
                 <ul class="alphabitList">
@@ -78,5 +111,15 @@
             </div>
         </div>
     </div>
+
+    <div class="row">
+        <div class="col-xs-12">
+            <div>
+                @Html.ActionLink("New Game", "New", "Home")
+            </div>
+        </div>
+
+    </div>
+    
 
 </div>

@@ -9,6 +9,9 @@ namespace mphi_hangman.ViewModel
     // View Model for the game 
     public class GameViewModel
     {
+        // the hang man question
+        public Models.Question Question;
+        
         // represents the letters from A-Z
         public char[] Alphabit;
         

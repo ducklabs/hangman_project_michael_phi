@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETStandard,Version=v2.0/",
-    "signature": "7b595ccbbeca29f9d06dcd64314c63f98031d6ab"
+    "signature": "fe4708b4cc266f17cdda1bc006a3396cce6707f4"
   },
   "compilationOptions": {},
   "targets": {
@@ -10,7 +10,8 @@
       "BAL/1.0.0": {
         "dependencies": {
           "NETStandard.Library": "2.0.1",
-          "NUnit": "3.9.0"
+          "NUnit": "3.9.0",
+          "NUnit3TestAdapter": "3.9.0"
         },
         "runtime": {
           "BAL.dll": {}
@@ -33,6 +34,7 @@
           "lib/netstandard1.6/nunit.framework.dll": {}
         }
       },
+      "NUnit3TestAdapter/3.9.0": {},
       "System.IO/4.3.0": {
         "dependencies": {
           "Microsoft.NETCore.Platforms": "1.1.0",
@@ -131,6 +133,13 @@
       "sha512": "sha512-0zKA0MB0bRKqPyInRlTgKvZTx/MhJGGnSUJ4sjx68JnfVGbH0Tp+Xq7uW+HVw0B5gCN8s0pUQlrbC3mjGyUU8A==",
       "path": "nunit/3.9.0",
       "hashPath": "nunit.3.9.0.nupkg.sha512"
+    },
+    "NUnit3TestAdapter/3.9.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-mtJZ7ejIVZliD0NI0HA3z1VgvBQVmwbnMOF2Lvg7j0MBJYXFOdBgNZcNZHFa8/lbgeckGxV4H93e+njHRbBtpQ==",
+      "path": "nunit3testadapter/3.9.0",
+      "hashPath": "nunit3testadapter.3.9.0.nupkg.sha512"
     },
     "System.IO/4.3.0": {
       "type": "package",

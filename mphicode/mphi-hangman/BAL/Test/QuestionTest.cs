@@ -6,17 +6,15 @@ using NUnit.Framework;
 
 namespace BAL.Test
 {
-    /*
-    [TestCase]
+    [TestFixture]
     public class QuestionTest
     {
-        [TestMethod]
+        [Test]
         public void Test1()
-        {
-            
+        {   
             Assert.AreEqual(1, 1);
 
         }
     }
-    */
+    
 }
