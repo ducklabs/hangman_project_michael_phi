@@ -24,52 +24,74 @@
         <div class="col-xs-12  text-center">
             @if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.One))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang0.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang0.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Two))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang1.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang1.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Three))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang2.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang2.gif")' />
             }
 
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Four))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang3.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang3.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Five))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang4.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang4.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Six))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang5.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang5.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Seven))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang6.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang6.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Eight))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang7.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang7.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Nine))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang8.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang8.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Ten))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang9.gif")" />
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang9.gif")' />
             }
             else if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Eleven))
             {
-                <img class="hangmanImage" src="@Url.Content("~/Content/Image/hangman/hang10.gif")" />
-                <span>Game Over</span>
+            <img class="hangmanImage" src='@Url.Content("~/Content/Image/hangman/hang10.gif")' />
             }
         </div>
     </div>
+
+
+    @if (Model.IsSuccessful)
+    {
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="endgame">
+                Congulations! You answered correctly
+            </span>
+        </div>
+    </div>
+    }
+
+    @if (Model.CurrentAtemptNumber.Equals(BAL.RetryEnum.Retry.Eleven))
+    {
+    <div class="row">
+        <div class="col-xs-12">
+            <span class="endgame">
+                Game Over
+            </span>
+        </div>
+    </div>
+    }
 
     <div class="row">
         <div class="col-xs-12">
@@ -77,14 +99,14 @@
                 <ul class="userLetterList">
                     @foreach (var letter in Model.Question.Answer.ToCharArray())
                     {
-                        if (letter.Equals(mphi_hangman.Utility.HangmanUtility.MaskAnswerCharacter))
-                        {
-                            <li>&nbsp;&nbsp;</li>
-                        }
-                        else
-                        {
-                            <li>@letter</li>
-                        }
+                    if (letter.Equals(mphi_hangman.Utility.HangmanUtility.MaskAnswerCharacter))
+                    {
+                    <li>&nbsp;&nbsp;</li>
+                    }
+                    else
+                    {
+                    <li>@letter</li>
+                    }
                     }
                 </ul>
             </div>
@@ -98,14 +120,14 @@
                 <ul class="alphabitList">
                     @foreach (var letter in Model.Alphabit)
                     {
-                        if (Model.UsedLetters.Contains(letter))
-                        {
-                            <li class="used" data-letter="@letter">@letter</li>
-                        }
-                        else
-                        {
-                            <li data-letter="@letter">@letter</li>
-                        }
+                    if (Model.UsedLetters.Contains(letter))
+                    {
+                    <li class="used" data-letter="@letter">@letter</li>
+                    }
+                    else
+                    {
+                    <li data-letter="@letter">@letter</li>
+                    }
                     }
                 </ul>
             </div>
@@ -115,11 +137,9 @@
     <div class="row">
         <div class="col-xs-12">
             <div>
-                @Html.ActionLink("New Game", "New", "Home")
+                @Html.ActionLink("New Game", "New", "Home", null, new { @class ="btn btn-default" } )
             </div>
         </div>
 
-    </div>
-    
 
-</div>
+    </div>

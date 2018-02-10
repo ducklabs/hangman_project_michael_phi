@@ -13,6 +13,7 @@ namespace mphi_hangman.Utility
         public const string QUESTION_ID_COOKIE_NAME = "hangmanquestionid";
         public const string USED_LETTERS_COOKIE_NAME = "hangmanusedletters";
         public const string CURRENT_ATTEMPT_NUMBER_COOKIE_NAME = "hangmancurrentattempt";
+        public const string IS_GAME_SUCCESSFUL = "hangmanisgamesuccessful";
 
         // represents a masked character
         public const char MaskAnswerCharacter = '*';
@@ -44,6 +45,7 @@ namespace mphi_hangman.Utility
             CookieUtility.AddCookie(httpContext, HangmanUtility.QUESTION_ID_COOKIE_NAME, newHangmanSession.Question.Id.ToString());
             CookieUtility.AddCookie(httpContext, HangmanUtility.USED_LETTERS_COOKIE_NAME, string.Empty);
             CookieUtility.AddCookie(httpContext, HangmanUtility.CURRENT_ATTEMPT_NUMBER_COOKIE_NAME, ((int)RetryEnum.Retry.One).ToString());
+            CookieUtility.AddCookie(httpContext, HangmanUtility.IS_GAME_SUCCESSFUL, bool.FalseString);
 
             return newHangmanSession;
         }
@@ -70,6 +72,11 @@ namespace mphi_hangman.Utility
             {
                 CookieUtility.DeleteCookie(httpContext, HangmanUtility.CURRENT_ATTEMPT_NUMBER_COOKIE_NAME);
             }
+
+            if (httpContext.Request.Cookies.AllKeys.Contains(HangmanUtility.IS_GAME_SUCCESSFUL))
+            {
+                CookieUtility.DeleteCookie(httpContext, HangmanUtility.IS_GAME_SUCCESSFUL);
+            }   
         }
 
         // finds an in progress game or creates a new game
@@ -98,14 +105,40 @@ namespace mphi_hangman.Utility
             if(!Enum.TryParse(currentAttempString, out currentAttempt) ||
                 (!Enum.IsDefined(typeof(RetryEnum.Retry), currentAttempt)))
             {
-                throw new Exception("Unable to start game");
+                currentAttempt = RetryEnum.Retry.Eleven;
             }
 
+            string isSuccessfulString = CookieUtility.GetCookie(httpContext, HangmanUtility.IS_GAME_SUCCESSFUL);
+            bool isSuccessful;
+            if (!bool.TryParse(isSuccessfulString, out isSuccessful))
+            {
+                isSuccessful = false;
+            }
+            
             result = new Hangman(Question.GetQuestionByID(questionID),
                 usedlettersArray,
-                currentAttempt);
+                currentAttempt,
+                isSuccessful);
             
             return result;
+        }
+
+        // updates the existing game data
+        public static void UpdateCurrentGame(System.Web.HttpContextBase httpContext, Hangman currentGame)
+        {   
+            // if there is no current game, so create a new one
+            if (!httpContext.Request.Cookies.AllKeys.Contains(HangmanUtility.HANGMAN_COOKIE_NAME))
+            {
+                throw new Exception("Unable to update game");
+            }
+
+            CookieUtility.AddCookie(httpContext, HangmanUtility.QUESTION_ID_COOKIE_NAME, currentGame.Question.Id.ToString());
+
+            CookieUtility.AddCookie(httpContext, HangmanUtility.USED_LETTERS_COOKIE_NAME, new string(currentGame.UsedLetters));
+
+            CookieUtility.AddCookie(httpContext, HangmanUtility.CURRENT_ATTEMPT_NUMBER_COOKIE_NAME, currentGame.CurrentAtemptNumber.ToString());
+
+            CookieUtility.AddCookie(httpContext, HangmanUtility.IS_GAME_SUCCESSFUL, currentGame.IsGameSuccessful.ToString());
         }
     }
 }

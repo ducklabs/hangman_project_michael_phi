@@ -16,6 +16,9 @@ namespace BAL
         // represents the current attempt number for the user
         public RetryEnum.Retry CurrentAtemptNumber;
 
+        public bool IsGameSuccessful;
+        
+
         // starts a new instance of the hangman game
         public Hangman()
         {
@@ -24,14 +27,17 @@ namespace BAL
             UsedLetters = new char[0];
 
             CurrentAtemptNumber = RetryEnum.Retry.One;
+
+            IsGameSuccessful = false;
         }
 
-        // creates an instance al an existing game
-        public Hangman(Question question, char[] usedLetters, RetryEnum.Retry currentAtemptNumber)
+        // creates an instance of an existing game
+        public Hangman(Question question, char[] usedLetters, RetryEnum.Retry currentAtemptNumber, bool isGameSuccessful)
         {
             Question = question;
             UsedLetters = usedLetters;
             CurrentAtemptNumber = currentAtemptNumber;
+            IsGameSuccessful = isGameSuccessful;
         }
     }
 }

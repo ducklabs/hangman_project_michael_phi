@@ -34,7 +34,7 @@ namespace mphi_hangman.Utility
             {
                 return httpContext.Request.Cookies[cookieName].Value;
             }
-
+            
             throw new Exception("Cookie does not exist for name:" + cookieName);
         }
     }

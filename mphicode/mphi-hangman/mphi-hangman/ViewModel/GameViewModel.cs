@@ -20,5 +20,8 @@ namespace mphi_hangman.ViewModel
 
         // represents the current attempt number for the user
         public RetryEnum.Retry CurrentAtemptNumber;
+
+        // represents whether the user successfully completed the game
+        public bool IsSuccessful;
     }
 }

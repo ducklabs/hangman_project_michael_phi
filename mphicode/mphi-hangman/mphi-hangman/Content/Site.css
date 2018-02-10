@@ -39,6 +39,10 @@ img.hangmanImage {
     margin: 0 auto;
 }
 
+.endgame {
+    background-color: lightblue;
+}
+
 ul.userLetterList {
     list-style-type: none;
     text-decoration: underline;
